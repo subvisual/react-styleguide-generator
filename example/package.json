@@ -2,11 +2,11 @@
   "name": "react-styleguide-generator-example",
   "private": true,
   "scripts": {
-    "start": "npm run styleguide && npm run serve",
-    "styleguide": "rsg 'components/**/*.js'",
-    "serve": "serve ./styleguide"
+    "start": "nf start"
   },
   "dependencies": {
+    "browser-sync": "^2.9.7",
+    "foreman": "^1.4.1",
     "react": "^0.13.3",
     "react-bootstrap": "^0.23.5"
   },
