@@ -1,5 +1,9 @@
 {
   "title": "React Style Guide",
+  "typekit": {
+    "id": "rtq7sdx",
+    "fontFamily": "proxima-nova"
+  },
   "files": [
     "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css",
     "example.css"

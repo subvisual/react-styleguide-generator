@@ -4,6 +4,16 @@ var RSG = require('../lib/rsg')
 var argv = require('minimist')(process.argv.slice(2))
 var log
 
+function typekitOpts(argv) {
+  var id = argv.tid || argv['typekit-id'];
+  var fontFamily = argv.tff || argv['typekit-font-family'];
+
+  if (id && fontFamily)
+    return { id: id, fontFamily: fontFamily };
+  else
+    return undefined
+}
+
 !(function () {
   if (!argv._[0] || argv.h || argv.help) {
     return require('fs').createReadStream(require('path').resolve(__dirname, 'usage.txt'))
@@ -23,7 +33,8 @@ var log
     files: argv.f || argv.files,
     config: argv.c || argv.config,
     watch: argv.w || argv.watch,
-    verbose: argv.v || argv.verbose
+    verbose: argv.v || argv.verbose,
+    typekit: typekitOpts(argv)
   }
 
   log = require('../lib/logger')('bin', { debug: true })

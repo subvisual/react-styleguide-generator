@@ -1,9 +1,5 @@
 # React Styleguide Generator
 
-[![CircleCI](https://img.shields.io/circleci/project/pocotan001/react-styleguide-generator.svg)](https://circleci.com/gh/pocotan001/react-styleguide-generator)
-[![npm](https://img.shields.io/npm/v/react-styleguide-generator.svg)](https://npmjs.org/package/react-styleguide-generator)
-[![Join the chat at https://gitter.im/pocotan001/react-styleguide-generator](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/pocotan001/react-styleguide-generator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 Easily generate a good-looking styleguide by adding some documentation to your React project.
 
 ![preview](https://cloud.githubusercontent.com/assets/869065/8392279/7f3811ae-1d20-11e5-9707-864d5994ba49.png)  
@@ -19,7 +15,7 @@ Which requires **React 0.13.0** or newer. To install it `npm install react`.
 
 ## Quick Start
 
-**NOTE:** By default Babel's `static` keyword is disabled. You can turn them on individually by passing `stage 0` as a [babelrc](https://babeljs.io/docs/usage/babelrc/) or [options.babelConfig](#babelconfig).
+**NOTE:** Babel's `static` keyword is enabled by default.
 
 ### Documenting your React components
 
@@ -151,14 +147,16 @@ Type `rsg -h` or `rsg --help` to get all the available options.
 Usage: rsg [input] [options]
 
 Options:
-  -o, --output     Output directory            ['styleguide']
-  -t, --title      Used as a page title        ['Style Guide']
-  -r, --root       Set the root path           ['.']
-  -f, --files      Inject references to files  ['']
-  -c, --config     Use the config file         ['styleguide.json']
-  -p, --pushstate  Enable HTML5 pushState      [false]
-  -v, --verbose    Verbose output              [false]
-  -w, --watch      Watch mode using `browserifyConfig`
+  -o, --output                     Output directory                          ['styleguide']
+  -t, --title                      Used as a page title                      ['Style Guide']
+  -r, --root                       Set the root path                         ['.']
+  -f, --files                      Inject references to files                ['']
+  -c, --config                     Use the config file                       ['styleguide.json']
+  -p, --pushstate                  Enable HTML5 pushState                    [false]
+  -v, --verbose                    Verbose output                            [false]
+  -w, --watch                      Watch mode using `browserifyConfig`
+  -tid, --typekit-id               Set the id to use with typekit
+  -tff, --typekit-font-family      Set the font-family to use in the root
 
 Examples:
   rsg 'example/**/*.js' -t 'Great Style Guide' -f 'a.css, a.js' -v
@@ -311,7 +309,7 @@ Inject file references into index.html if the files with the extension `.css` or
 Type: `String|Object`  
 Default: `styleguide.json`
 
-The entire range of RSG API options is allowed. [Usage example](https://github.com/pocotan001/react-styleguide-generator/blob/master/example/styleguide.json).
+The entire range of RSG API options is allowed. [Usage example](https://github.com/subvisual/react-styleguide-generator/blob/master/example/styleguide.json).
 
 An object can be passed instead of a filename that contains the RSG API options.
 

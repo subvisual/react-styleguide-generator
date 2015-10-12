@@ -16,10 +16,19 @@
     {{#cssFils}}
       <link rel="stylesheet" href="{{{.}}}">
     {{/cssFils}}
+
+    {{#typekit}}
+      <script src="https://use.typekit.net/{{typekit.id}}.js"></script>
+      <script>try{Typekit.load({ async: true });}catch(e){}</script>
+      <style>
+        html, body, .sg {
+          font-family: '{{typekit.fontFamily}}';
+        }
+      </style>
+    {{/typekit}}
   </head>
   <body>
     <div id="app"></div>
-
     <script>
       window.config = {
         base: '{{{root}}}',
@@ -29,7 +38,6 @@
       window.RSG = {
           propMetas: {{{propMetas}}}
       }
-
     </script>
     {{#jsFils}}
       <script src="{{{.}}}"></script>
