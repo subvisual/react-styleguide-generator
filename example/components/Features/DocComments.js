@@ -9,6 +9,7 @@ import { Button } from 'react-bootstrap'
 export default class extends Component {
   // displayName is required for props documentation
   static displayName = 'DocCommentExample'
+  static wrapperComponent = 'Button';
 
   static styleguide = {
     index: '5.2',
