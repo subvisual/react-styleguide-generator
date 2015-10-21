@@ -160,7 +160,7 @@ Options:
 
 Examples:
   rsg 'example/**/*.js' -t 'Great Style Guide' -f 'a.css, a.js' -v
-  
+
   # Necessary to use a config file if you want to enable react-docgen
   rsg 'example/**/*.js' -c 'styleguide.json' -v
 ```
@@ -304,6 +304,8 @@ Inject file references into index.html if the files with the extension `.css` or
 </html>
 ```
 
+If `watch` is enabled, these files will be watched for changes, and copied again on change.
+
 ##### config
 
 Type: `String|Object`  
@@ -325,15 +327,17 @@ Enable HTML5 pushState. When this option is enabled, styleguide will use history
 Type: `Object`  
 Default: `null`
 
-A usage example is below. See the [babel docs](http://babeljs.io/docs/usage/options/) for the complete list.
+Configuration object for babel. Take the following as an example.
 
 ``` js
 {
   babelConfig: {
-    stage: 0
+    stage: 1
   }
 }
 ```
+
+`stage: 0` is enabled by default. See the [babel docs](http://babeljs.io/docs/usage/options/) for the complete list.
 
 ##### browserifyConfig
 
@@ -348,7 +352,7 @@ A usage example is below. See the [browserify docs](https://github.com/substack/
 }
 ```
 
-### watch
+#### watch
 
 Type: `String`
 Default: `false`
