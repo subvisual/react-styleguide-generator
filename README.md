@@ -1,4 +1,5 @@
-# React Styleguide Generator
+React Styleguide Generator
+==========================
 
 Easily generate a good-looking styleguide by adding some documentation to your React project.
 
@@ -14,8 +15,6 @@ npm install react-styleguide-generator
 Which requires **React 0.13.0** or newer. To install it `npm install react`.
 
 ## Quick Start
-
-**NOTE:** Babel's `static` keyword is enabled by default.
 
 ### Documenting your React components
 
@@ -265,29 +264,19 @@ Set the root path. For example, if the styleguide is hosted at `http://example.c
 Type: `Array`  
 Default: `null`
 
-Inject references to files. A usage example is:
+Inject file references into index.html. It uses the file extension to figure out if it's a `scripts` or a `link`. A usage example is:
 
 ``` js
 {
   files: [
     '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css',
     'a.css',
-    'a.js',
-    'icon.svg'
+    'scripts/a.js'
   ]
 }
 ```
 
-Check for the existence of the files and only copy the files if it exists.
-
-```
-styleguide/files
-├─ a.css
-├─ a.js
-└─ icon.svg
-```
-
-Inject file references into index.html if the files with the extension `.css` or `.js`.
+This would generate the following output:
 
 ``` html
 <!doctype html>
@@ -295,16 +284,16 @@ Inject file references into index.html if the files with the extension `.css` or
   <head>
     …
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="files/a.css">
+    <link rel="stylesheet" href="a.css">
   </head>
   <body>
     …
-    <script src="files/a.js"></script>
+    <script src="scripts/a.js"></script>
   </body>
 </html>
 ```
 
-If `watch` is enabled, these files will be watched for changes, and copied again on change.
+The files will not be copied into the styleguide folder, only a reference will be injected into the html. It's the http server's responsibility to set the styleguide folder, and all the folders for the other files as a base directory. This can be combined with the `root` option.
 
 ##### config
 
@@ -339,6 +328,19 @@ Configuration object for babel. Take the following as an example.
 
 `stage: 0` is enabled by default. See the [babel docs](http://babeljs.io/docs/usage/options/) for the complete list.
 
+##### typekit
+
+Type: `Object`
+Default: `null`
+
+Adds Typekit to the generated styleguide. Allows specifying the typekit id and `font-familly` to use. For instance:
+
+``` js
+{
+  id: 'rtq7sdx',
+  fontFamily: 'proxima-nova'
+}
+```
 ##### browserifyConfig
 
 Type: `Object`  
@@ -352,7 +354,7 @@ A usage example is below. See the [browserify docs](https://github.com/substack/
 }
 ```
 
-#### watch
+##### watch
 
 Type: `String`
 Default: `false`

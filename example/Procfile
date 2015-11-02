@@ -1,2 +1,0 @@
-styleguide: rsg 'components/**/*.js' -w
-serve: browser-sync start --server ./styleguide --files './styleguide/src/*'

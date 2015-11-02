@@ -6,7 +6,8 @@
   },
   "files": [
     "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css",
-    "example.css"
+    "example.css",
+    "scripts/example.js"
   ],
   "babelConfig": {
     "stage": 0
