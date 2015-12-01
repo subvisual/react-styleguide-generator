@@ -8,8 +8,9 @@
   },
   "dependencies": {
     "browser-sync": "^2.9.7",
-    "react": "^0.13.3",
-    "react-bootstrap": "^0.23.5"
+    "react": "^0.14.3",
+    "react-bootstrap": "^0.27.1",
+    "react-dom": "^0.14.3"
   },
   "devDependencies": {
     "react-styleguide-generator": "*",
